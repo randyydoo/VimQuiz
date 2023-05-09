@@ -4,17 +4,17 @@ def main():
     temp = []
     score = 0
     while True:
-        question = random.choice([questions.bank.keys()])
+        question, ans = random.choice(list(questions.bank.items()))
         while question in temp:
-            question = random.choice([questions.bank.keys()])
-        answer = questions.bank[question]
-        print(f"Current score: {score} \n -------------------\n")
-        ans = input(question, "Your answer(type 'exit' to exit': ")
-        if ans is not answer:
+            question, ans = random.choice(list(questions.bank.items()))
+        print("Current score: ", score, "\n\n-----------------")
+        print(question)
+        answer = input( "Your answer(type 'exit' to exit': ")
+        if answer is not ans:
             score = 0
             temp = []
             continue
-        elif ans == "exit":
+        elif answer == "exit":
             break
         score += 1
         temp.append(question)
