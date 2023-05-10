@@ -1,21 +1,14 @@
 import questions
 import random 
-def main():
-    temp = []
-    score = 0
-    while True:
-        question, ans = random.choice(list(questions.bank.items()))
-        while question in temp:
-            question, ans = random.choice(list(questions.bank.items()))
-        print("Current score: ", score, "\n\n-----------------")
-        print(question)
-        answer = input( "Your answer(type 'exit' to exit': ")
-        if answer is not ans:
-            score = 0
-            temp = []
-            continue
-        elif answer == "exit":
-            break
-        score += 1
-        temp.append(question)
-main()
+temp = []
+score = 0
+b = True
+while b is True: 
+    question = random.choice(list(questions.bank.keys()))
+    ans = questions.bank[question]
+    print("\n\nCurrent score: ", score, "\n-----------------\n\n")
+    print(question)
+    answer = input( "\n\nYour answer(type 'exit()' to exit': ")
+    if answer is not ans:
+       b = False 
+    score += 1
